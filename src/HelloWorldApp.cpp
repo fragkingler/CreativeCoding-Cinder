@@ -41,6 +41,7 @@ public:
 public:
 	// Size of Balls
 	static const int kRadius = 50;
+	static const int kCount = 10;
 
 public:
 	vec2 mPrevPosition;
@@ -259,6 +260,8 @@ public:
 		void performCollisions();
 
 	private:
+		static const int kCount = Ball::kCount;
+
 		bool mUseMotionBlur;
 		bool mIsPaused;
 
@@ -288,7 +291,7 @@ void HelloWorldApp::setup()
 	gl::enableVerticalSync(false);
 
 	// create a few balls
-	for (size_t i = 0; i < 5; ++i)
+	for (size_t i = 0; i < kCount; ++i)
 		mBalls.push_back(BallRef(new Ball()));
 
 	// create a default shader with color and texture support
